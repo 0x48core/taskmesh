@@ -1,2 +1,2 @@
-// Worker pool: claim loop, execute, heartbeat.
+// NewWorker: wires the core worker service to the Postgres adapter and a handler registry.
 package taskmesh

@@ -1,2 +1,2 @@
-// Client: Enqueue, EnqueueTx, Cancel, Retry, Get.
+// Client: Enqueue, EnqueueTx, Cancel, Retry, Get. Wires core TaskService to the Postgres adapter.
 package taskmesh
