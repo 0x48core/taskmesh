@@ -1,1 +1,4 @@
-# TaskMesh overrides for the prod environment
+# TaskMesh overrides for the prod environment (database.url comes from DATABASE_URL)
+database:
+  max_conns: 50
+  min_conns: 5

@@ -1,2 +1,19 @@
-# Postgres for integration tests
-services: {}
+# Throwaway Postgres for integration tests: no volume, data lives in memory.
+name: taskmesh-test
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: taskmesh
+      POSTGRES_PASSWORD: taskmesh
+      POSTGRES_DB: taskmesh_test
+    ports:
+      - "5433:5432"
+    tmpfs:
+      - /var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U taskmesh -d taskmesh_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 15

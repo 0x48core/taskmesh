@@ -1,1 +1,9 @@
-# TaskMesh base configuration: database, http, worker, reaper
+# TaskMesh base configuration. Environment files (application-<env>.yaml) override these keys.
+# http, worker and reaper sections are added in later phases.
+database:
+  url: ${DATABASE_URL}
+  max_conns: 10
+  min_conns: 1
+  connect_timeout: 5s
+  max_conn_lifetime: 30m
+  max_conn_idle_time: 5m
