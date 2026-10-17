@@ -1,1 +1,3 @@
 # TaskMesh overrides for the dev environment
+database:
+  url: postgres://taskmesh:taskmesh@localhost:5432/taskmesh?sslmode=disable

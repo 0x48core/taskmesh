@@ -1,1 +1,4 @@
 # TaskMesh overrides for the test environment
+database:
+  url: postgres://taskmesh:taskmesh@localhost:5433/taskmesh_test?sslmode=disable
+  max_conns: 5

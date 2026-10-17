@@ -1,1 +1,3 @@
-# TaskMesh overrides for the stg environment
+# TaskMesh overrides for the stg environment (database.url comes from DATABASE_URL)
+database:
+  max_conns: 20
