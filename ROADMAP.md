@@ -12,17 +12,17 @@ either order. Phases 5 and 6 can wait until the core is stable.
 
 **Goal:** a local Postgres with the schema applied, and config loading working.
 
-- [ ] 1. Dependencies: `go get` pgx v5, testcontainers-go (postgres module), a YAML library, google/wire.
-- [ ] 2. `services/taskmesh/migrations/0001_create_tasks.up.sql`
+- [x] 1. Dependencies: `go get` pgx v5, testcontainers-go (postgres module), a YAML library, google/wire.
+- [x] 2. `services/taskmesh/migrations/0001_create_tasks.up.sql`
   - `tasks` table: `id`, `type`, `payload jsonb`, `status`, `priority`, `attempts`, `max_attempts`,
     `run_at`, `idempotency_key`, `last_error`, `worker_id`, `heartbeat_at`, timestamps.
   - Claim index: `(priority DESC, run_at, id) WHERE status = 'pending'`.
   - Reaper index: `(heartbeat_at) WHERE status = 'running'`.
   - Unique index: `(type, idempotency_key)`.
   - Matching `down.sql`, plus `embed.go` so tests can read the SQL files.
-- [ ] 3. `docker/docker-compose.dev.yaml` with Postgres only. Makefile targets `up`, `down`, `migrate` (golang-migrate).
-- [ ] 4. `pkg/env`, `pkg/gconfig`, `conf/*.yaml`: load `config.yaml` and merge `application-<env>.yaml` over it.
-- [ ] 5. `pkg/db/postgres.go`: create the pool with a ping and timeouts.
+- [x] 3. `docker/docker-compose.dev.yaml` with Postgres only. Makefile targets `up`, `down`, `migrate` (golang-migrate).
+- [x] 4. `pkg/env`, `pkg/gconfig`, `conf/*.yaml`: load `config.yaml` and merge `application-<env>.yaml` over it.
+- [x] 5. `pkg/db/postgres.go`: create the pool with a ping and timeouts.
 
 **Done when:** `make up && make migrate` gives you a `tasks` table, and a small test loads the config.
 
@@ -32,7 +32,7 @@ either order. Phases 5 and 6 can wait until the core is stable.
 
 **Goal:** enqueue a task and have a worker run it.
 
-- [ ] 1. `task.go`, `errors.go`, `config/config.go`
+- [x] 1. `task.go`, `errors.go`, `config/config.go`
   - `Task` struct and `Status` constants.
   - Enqueue options: priority, run-at time, delay, max attempts.
   - Errors: `ErrTaskNotFound`, `ErrInvalidState`, `ErrSkipRetry`.
