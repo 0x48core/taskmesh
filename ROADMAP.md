@@ -37,7 +37,7 @@ either order. Phases 5 and 6 can wait until the core is stable.
   - Enqueue options: priority, run-at time, delay, max attempts.
   - Errors: `ErrTaskNotFound`, `ErrInvalidState`, `ErrSkipRetry`.
   - Config with defaults.
-- [ ] 2. `internal/store`
+- [x] 2. `internal/store`
   - `Store` interface and its Postgres version of `Enqueue`, `Get`, `Claim`, `Complete`.
   - `Claim` is a single `UPDATE ... WHERE id IN (SELECT ... FOR UPDATE SKIP LOCKED)` statement.
   - `main_test.go` starts Postgres with testcontainers and applies the migrations.
