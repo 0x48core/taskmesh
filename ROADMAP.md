@@ -42,7 +42,7 @@ either order. Phases 5 and 6 can wait until the core is stable.
   - `Claim` is a single `UPDATE ... WHERE id IN (SELECT ... FOR UPDATE SKIP LOCKED)` statement.
   - `main_test.go` starts Postgres with testcontainers and applies the migrations.
   - Tests check that concurrent claimers never get the same task.
-- [ ] 3. `Handler`, `HandlerFunc`, `Registry`
+- [x] 3. `Handler`, `HandlerFunc`, `Registry`
   - ⚠️ Decide where these live first. In `internal/handler`, other projects can't register their
     own handlers. The root package or a top-level `handler/` folder works.
 - [ ] 4. `client.go`: `NewClient`, `Enqueue`, `Get`.
